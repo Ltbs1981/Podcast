@@ -6,7 +6,8 @@ namespace PodCast
 {
     class Episodio
     {
-        private readonly List<string> convidados = new List<string>();
+        private List<string> convidados = new List<string>();
+
         public Episodio(int ordem, string titulo, int duracao)
         {
             Ordem = ordem;
@@ -17,12 +18,12 @@ namespace PodCast
         public int Ordem { get; }
         public string Titulo { get; }
         public int Duracao { get; }
+
         public string Resumo => $"{Ordem}. {Titulo} ({Duracao} min) - {string.Join(", ", convidados)}";
 
-        public void AdicionarConvidados(string convidado)
+        public void AdicionarConvidado(string convidado)
         {
             convidados.Add(convidado);
         }
-
     }
 }
